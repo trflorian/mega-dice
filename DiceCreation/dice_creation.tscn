@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cudpaibhdkxwd"]
+[gd_scene load_steps=6 format=3 uid="uid://cudpaibhdkxwd"]
 
 [ext_resource type="Script" path="res://DiceCreation/dice_creation.gd" id="1_4y7cv"]
 [ext_resource type="Texture2D" uid="uid://dhn4c6kx77ylo" path="res://circle.png" id="1_8cgbl"]
 [ext_resource type="PackedScene" uid="uid://3rpgn5e3c8k7" path="res://DiceCreation/button_dice.tscn" id="1_o1okr"]
-[ext_resource type="PackedScene" uid="uid://ddtq2yqdmpj78" path="res://DiceOverview/dice_overview.tscn" id="2_kwfm5"]
 [ext_resource type="Script" path="res://DiceCreation/dot_grids.gd" id="2_lncbj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_b356o"]
@@ -17,7 +16,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4y7cv")
-dice_overview = ExtResource("2_kwfm5")
 label_dice_name = NodePath("LabelDiceName")
 button_finish = NodePath("ButtonFinish")
 remaining_dot_grid = NodePath("Panel/RemainingDots")

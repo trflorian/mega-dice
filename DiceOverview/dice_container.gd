@@ -2,7 +2,7 @@ extends PanelContainer
 
 class_name DiceContainer
 
-@export var scene_edit_dice: PackedScene
+#@export var scene_edit_dice: PackedScene
 @export var dice_prefab: PackedScene
 
 @onready var dice_container_parent: Control = %Dices
@@ -24,7 +24,8 @@ func remove_dice(dice_config: DiceConfig):
 
 func edit_dice(dice_config: DiceConfig):
 	Dice.editing_dice = dice_config
-	get_tree().change_scene_to_packed(scene_edit_dice)
+	get_tree().change_scene_to_file("res://DiceCreation/dice_creation.tscn")
+	#get_tree().change_scene_to_packed(scene_edit_dice)
 
 func _update_dices():
 	for child in dice_container_parent.get_children():
