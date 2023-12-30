@@ -1,0 +1,92 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddtq2yqdmpj78"]
+
+[ext_resource type="Script" path="res://DiceOverview/dice_item_creator.gd" id="1_ook64"]
+[ext_resource type="Script" path="res://DiceOverview/dice_container.gd" id="1_tud7o"]
+[ext_resource type="PackedScene" uid="uid://c4ebs7laf62el" path="res://DiceOverview/dice_item.tscn" id="2_bw8lx"]
+[ext_resource type="PackedScene" uid="uid://cudpaibhdkxwd" path="res://DiceCreation/dice_creation.tscn" id="3_cnvy5"]
+
+[node name="DiceOverview" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DiceNameCreator" type="PanelContainer" parent="." node_paths=PackedStringArray("dice_container", "submit_button", "dice_name_edit")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -270.0
+offset_top = 68.0
+offset_right = 270.0
+offset_bottom = 123.0
+grow_horizontal = 2
+script = ExtResource("1_ook64")
+dice_container = NodePath("../DiceContainer")
+submit_button = NodePath("MarginContainer/HBoxContainer/Button")
+dice_name_edit = NodePath("MarginContainer/HBoxContainer/LineEdit")
+
+[node name="MarginContainer" type="MarginContainer" parent="DiceNameCreator"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DiceNameCreator/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="LineEdit" type="LineEdit" parent="DiceNameCreator/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="DiceNameCreator/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Add"
+
+[node name="DiceContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -132.0
+offset_right = 270.0
+offset_bottom = 132.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tud7o")
+scene_edit_dice = ExtResource("3_cnvy5")
+dice_prefab = ExtResource("2_bw8lx")
+
+[node name="MarginContainer" type="MarginContainer" parent="DiceContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Dices" type="VBoxContainer" parent="DiceContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ButtonStart" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -270.0
+offset_top = -120.0
+offset_right = 270.0
+offset_bottom = -74.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Start"
